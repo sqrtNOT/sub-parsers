@@ -55,3 +55,13 @@ def parsevtt(path):
         _dic = {"line": tup[0], "start": tup[1], "end": tup[2], "text": tup[-1].strip()}
         arr.append(_dic)
     return arr
+
+
+def parsesubs(path):
+    extdic = {'ass': parseass, 'ssa': parsessa, 'vtt': parsevtt, 'srt': parsesrt}
+    ext = path.split(".")[-1].lower().strip()
+    funct = extdic.get(ext)
+    if funct is not None:
+        return(funct(path))
+    else:
+        return(None)  # unsupported filetype
