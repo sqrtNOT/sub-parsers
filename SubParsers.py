@@ -29,3 +29,8 @@ def parseass(path):
         dic = {k: v for (k, v) in zip(header, tokens)}
         arr.append(dic)
     return arr
+
+
+def parsessa(path):
+    return parseass(path)
+
